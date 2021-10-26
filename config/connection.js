@@ -1,12 +1,14 @@
 // import the Sequelize constructor from the library
-const Sequelize = require( " sequelize ");
-const { Sequelize } = require("sequelize/types");
+const Sequelize = require('sequelize');
 
-//create connection to oour datbase, pass in your MySQl information for username and password
-const Sequelize = new Sequelize( " just_tech_news_db", "username", "password", {
-   host: "localhost",
-   dialect: "mysql" ,
-   port: 3306
-});
+require('dotenv').config();
 
-module.exports = sequelize;
+
+// create connection to our db
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+    host: 'localhost',
+    dialect: 'mysql',
+    port: 3306
+  });
+  
+  module.exports = sequelize;
